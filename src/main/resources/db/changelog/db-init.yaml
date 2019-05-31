@@ -1,0 +1,42 @@
+databaseChangeLog:
+- changeSet:
+    id: 2019-05-31-create-point-table
+    author: Andrei Ladyka
+    changes:
+    - createTable:
+        tableName: car_point
+        columns:
+        - column:
+            name: car_point_id
+            type: bigint
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              primaryKeyName: pk_car_point_id
+              nullable: false
+        - column:
+            name: latitude
+            type: double
+        - column:
+            name: longitude
+            type: double
+        - column:
+            name: speed
+            type: double
+        - column:
+            name: car_vin
+            type: varchar(17)
+        - column:
+            name: create_date
+            type: datetime
+#            defaultValueComputed: current_timestamp
+#            constraints:
+#              nullable: false
+#        - column:
+#            name: last_updated
+#            type: datetime
+#            defaultValueComputed: current_timestamp
+#            constraints:
+#              nullable: false
+#    - sql: |
+#          alter table car_point modify last_updated datetime not null default current_timestamp on update current_timestamp;
